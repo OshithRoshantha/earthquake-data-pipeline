@@ -14,7 +14,8 @@ def fetchFromApi(startTime,endTime):
     else:
         print('Unable to fetch data')
         
-def setTime(executeTime):
+def setTime():
+    executeTime=datetime.now()
     startTime=executeTime-timedelta(hours=1)
     return startTime.strftime('%Y-%m-%dT%H:%M:%S'),executeTime.strftime('%Y-%m-%dT%H:%M:%S')
     
