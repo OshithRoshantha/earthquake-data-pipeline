@@ -1,4 +1,5 @@
 from azure.storage.blob import BlobServiceClient
+from azure.identity import DefaultAzureCredential
 from dotenv import load_dotenv
 import os
 import pandas as pd
@@ -8,10 +9,10 @@ load_dotenv()
 
 def pushToAzure(dataFrame):
     
-    accountKey=os.getenv('AZURE_ACCOUNT_KEY')
+    credential=DefaultAzureCredential()
     accountName=os.getenv('AZURE_ACCOUNT_NAME')
         
-    blobServiceClient=BlobServiceClient(account_url=f"https://{accountName}.blob.core.windows.net", credential=accountKey)
+    blobServiceClient=BlobServiceClient(account_url=f"https://{accountName}.blob.core.windows.net", credential=credential)
     containerClient = blobServiceClient.get_container_client('datalake')
     blobClient = containerClient.get_blob_client('data.json')
     
