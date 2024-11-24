@@ -1,0 +1,21 @@
+[2024-11-24T14:08:21.237+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-11-24T14:08:21.296+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_PipelineV4.preprocessData scheduled__2024-11-24T13:00:00+00:00 [queued]>
+[2024-11-24T14:08:21.316+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_PipelineV4.preprocessData scheduled__2024-11-24T13:00:00+00:00 [queued]>
+[2024-11-24T14:08:21.318+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2024-11-24T14:08:21.343+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): preprocessData> on 2024-11-24 13:00:00+00:00
+[2024-11-24T14:08:21.367+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=916) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-24T14:08:21.365+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'etl_PipelineV4', 'preprocessData', 'scheduled__2024-11-24T13:00:00+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/etlDag.py', '--cfg-path', '/tmp/tmp947j_e41']
+[2024-11-24T14:08:21.369+0000] {standard_task_runner.py:72} INFO - Started process 936 to run task
+[2024-11-24T14:08:21.370+0000] {standard_task_runner.py:105} INFO - Job 13: Subtask preprocessData
+[2024-11-24T14:08:21.463+0000] {task_command.py:467} INFO - Running <TaskInstance: etl_PipelineV4.preprocessData scheduled__2024-11-24T13:00:00+00:00 [running]> on host c27535c52186
+[2024-11-24T14:08:21.826+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Oshith Roshantha' AIRFLOW_CTX_DAG_ID='etl_PipelineV4' AIRFLOW_CTX_TASK_ID='preprocessData' AIRFLOW_CTX_EXECUTION_DATE='2024-11-24T13:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-24T13:00:00+00:00'
+[2024-11-24T14:08:21.828+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-11-24T14:08:21.893+0000] {python.py:240} INFO - Done. Returned value was:            id                     place  ...      lat    depth
+0  us6000p7fm  50 km E of Calama, Chile  ... -22.4115  114.168
+
+[1 rows x 13 columns]
+[2024-11-24T14:08:22.091+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-11-24T14:08:22.092+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=etl_PipelineV4, task_id=preprocessData, run_id=scheduled__2024-11-24T13:00:00+00:00, execution_date=20241124T130000, start_date=20241124T140821, end_date=20241124T140822
+[2024-11-24T14:08:22.152+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-11-24T14:08:22.190+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-11-24T14:08:22.195+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

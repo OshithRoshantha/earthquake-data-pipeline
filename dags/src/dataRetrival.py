@@ -2,10 +2,13 @@ import requests
 from datetime import datetime,timedelta
 
 def fetchFromApi(startTime,endTime):
+    startTimeStr = startTime.strftime("%Y-%m-%dT%H:%M:%S")
+    endTimeStr = endTime.strftime("%Y-%m-%dT%H:%M:%S")
+    
     params={
         "format":'geojson',
-        "starttime":startTime,
-        "endtime":endTime,
+        "starttime":startTimeStr,
+        "endtime":endTimeStr,
         "minmagnitude":4
     }
     response=requests.get('https://earthquake.usgs.gov/fdsnws/event/1/query',params=params)

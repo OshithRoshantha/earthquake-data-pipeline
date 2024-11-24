@@ -2,6 +2,7 @@ from datetime import datetime,timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from src import dataRetrival,clean,transform,pushToLake
+import pickle
 
 defaultArgs = {
     'owner': 'Oshith Roshantha',
@@ -11,7 +12,7 @@ defaultArgs = {
 }
 
 dag = DAG(
-    'etl_Pipeline',
+    'etl_PipelineV13',
     default_args=defaultArgs,
     description='ETL Pipeline for Earthquake Data',
     schedule_interval=timedelta(hours=1),
@@ -44,16 +45,22 @@ def transformDataTask(**kwargs):
     processedData = taskInstance.xcom_pull(task_ids='preprocessData')
     
     previousTransformData = taskInstance.xcom_pull(task_ids='transformDataTask', key='return_value')
-    scaler = previousTransformData['scalar'] if previousTransformData and 'scalar' in previousTransformData else None
-    encoder = previousTransformData['encoder'] if previousTransformData and 'encoder' in previousTransformData else None
+    scaler = previousTransformData.get('scalar') if previousTransformData else None
+    encoder = previousTransformData.get('encoder') if previousTransformData else None
     
     encodedData,  scaler, encoder = transform.transformData(processedData, scaler, encoder)
-    return {'encodedData': encodedData, 'scalar': scaler, 'encoder':encoder}
+
+    encodedData=pickle.dumps(encodedData)
+        
+    taskInstance.xcom_push('encodedData',value=encodedData)
+    taskInstance.xcom_push('scalar',value=scaler)
+    taskInstance.xcom_push('encoder',value=encoder)
 
 def pushDataToAzure(**kwargs):
     taskInstance = kwargs['task_instance']
-    transformedData = taskInstance.xcom_pull(task_ids='transformDataTask')
-    pushToLake.pushToAzure(transformedData['encodedData'])
+    transformedData = taskInstance.xcom_pull(task_ids='transformDataTask',key='encodedData')
+    transformedData=pickle.loads(transformedData)
+    pushToLake.pushToAzure(transformedData)
 
 taskFetchData = PythonOperator(
     task_id='fetchData',

@@ -24,9 +24,9 @@ def transformData(dF,scaler=None,encoder=None):
         dF[numColumns]=scaler.transform(dF[numColumns])
         
     if encoder is None:
-        encoder=OneHotEncoder(handle_unknown='ignore',sparse=False)
+        encoder=OneHotEncoder(handle_unknown='ignore',sparse_output=False)
         encodeData=encoder.fit_transform(dF[catColumns])  
     else:
         encodeData=encoder.transform(dF[catColumns])
-    
+
     return encodeData,scaler,encoder
