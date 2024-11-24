@@ -17,3 +17,5 @@ Thumbs.db
 .idea/
 
 .ipynb_checkpoints/
+
+.data.json
