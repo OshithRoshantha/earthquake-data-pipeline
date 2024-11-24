@@ -14,6 +14,7 @@ def preProcessing(rawData):
             "place":prop.get('place',None),
             "time":pd.to_datetime(prop.get("time",None),unit='ms',errors='coerce'),
             "tsunami":prop.get('tsunami',None),
+            "mag":prop.get('mag',None),
             "sig":prop.get('sig',None),
             "nst":prop.get('nst',None),
             "dmin":prop.get('dmin',None),
@@ -27,4 +28,5 @@ def preProcessing(rawData):
         processedData.append(earthqData)
         
     dFrame=pd.DataFrame(processedData)
+    dFrame=dFrame.dropna()
     return dFrame
