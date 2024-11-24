@@ -13,7 +13,6 @@ def transformData(dF,scaler=None,encoder=None):
             return 'Light'
         
     dF['magCategory']=dF['mag'].apply(magCategory)
-    countData=dF.groupby("place").size().reset_index(name='earthqCount')
     
     numColumns=['tsunami','mag','sig','nst','dmin','gap']
     catColumns=['place','magType','magCategory']
@@ -30,5 +29,4 @@ def transformData(dF,scaler=None,encoder=None):
     else:
         encodeData=encoder.transform(dF[catColumns])
     
-    
-    return encodeData,countData,scaler,encoder
+    return encodeData,scaler,encoder
