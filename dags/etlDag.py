@@ -1,7 +1,13 @@
+import sys
+import os
 from datetime import datetime,timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-import src
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+import dataRetrival
+import clean
+import transform
+import pushToLake
 
 defaultArgs = {
     'owner': 'Oshith Roshantha',
@@ -30,13 +36,13 @@ def fetchData(**kwargs):
     executionDate = kwargs['execution_date']
     prevExecutionDate = kwargs.get('prev_execution_date')
     startTime, endTime = setTime(executionDate, prevExecutionDate, **kwargs)
-    rawData = src.fetchFromApi(startTime, endTime)
+    rawData = dataRetrival.fetchFromApi(startTime, endTime)
     return rawData
 
 def preprocessData(**kwargs):
     taskInstance = kwargs['task_instance']
     rawData = taskInstance.xcom_pull(task_ids='fetchData')
-    processedData = src.preProcessing(rawData)
+    processedData = clean.preProcessing(rawData)
     return processedData
 
 def transformDataTask(**kwargs):
@@ -47,13 +53,13 @@ def transformDataTask(**kwargs):
     scaler = previousTransformData['scalar'] if previousTransformData and 'scalar' in previousTransformData else None
     encoder = previousTransformData['encoder'] if previousTransformData and 'encoder' in previousTransformData else None
     
-    encodedData,  scaler, encoder = src.transformData(processedData, scaler, encoder)
+    encodedData,  scaler, encoder = transform.transformData(processedData, scaler, encoder)
     return {'encodedData': encodedData, 'scalar': scaler, 'encoder':encoder}
 
 def pushDataToAzure(**kwargs):
     taskInstance = kwargs['task_instance']
     transformedData = taskInstance.xcom_pull(task_ids='transformDataTask')
-    src.pushToAzure(transformedData['encodedData'])
+    pushToLake.pushToAzure(transformedData['encodedData'])
 
 taskFetchData = PythonOperator(
     task_id='fetchData',
