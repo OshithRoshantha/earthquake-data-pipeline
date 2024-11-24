@@ -1,5 +1,4 @@
 import pandas as pd
-import json
 
 def preProcessing(rawData):
     
@@ -24,3 +23,8 @@ def preProcessing(rawData):
             "lat":geom.get("coordinates",[None, None, None])[1],
             "depth":geom.get("coordinates",[None, None, None])[2],
         }
+        
+        processedData.append(earthqData)
+        
+    dFrame=pd.DataFrame(processedData)
+    return dFrame
