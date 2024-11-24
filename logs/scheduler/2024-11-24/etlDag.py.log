@@ -8038,3 +8038,17 @@ SyntaxError: unterminated triple-quoted string literal (detected at line 101)
 [2024-11-24T17:04:10.555+0000] {logging_mixin.py:190} INFO - [2024-11-24T17:04:10.554+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2024-11-24T17:04:10.571+0000] {logging_mixin.py:190} INFO - [2024-11-24T17:04:10.571+0000] {dag.py:4180} INFO - Setting next_dagrun for etl_PipelineV23 to 2024-11-24 17:00:00+00:00, run_after=2024-11-24 18:00:00+00:00
 [2024-11-24T17:04:10.604+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/etlDag.py took 1.438 seconds
+[2024-11-24T17:04:40.990+0000] {processor.py:186} INFO - Started process (PID=6103) to work on /opt/airflow/dags/etlDag.py
+[2024-11-24T17:04:40.992+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/etlDag.py for tasks to queue
+[2024-11-24T17:04:40.993+0000] {logging_mixin.py:190} INFO - [2024-11-24T17:04:40.993+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/etlDag.py
+[2024-11-24T17:04:42.188+0000] {processor.py:925} INFO - DAG(s) 'etl_PipelineV23' retrieved from /opt/airflow/dags/etlDag.py
+[2024-11-24T17:04:42.217+0000] {logging_mixin.py:190} INFO - [2024-11-24T17:04:42.217+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2024-11-24T17:04:42.241+0000] {logging_mixin.py:190} INFO - [2024-11-24T17:04:42.241+0000] {dag.py:4180} INFO - Setting next_dagrun for etl_PipelineV23 to 2024-11-24 17:00:00+00:00, run_after=2024-11-24 18:00:00+00:00
+[2024-11-24T17:04:42.263+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/etlDag.py took 1.278 seconds
+[2024-11-24T17:05:12.768+0000] {processor.py:186} INFO - Started process (PID=6123) to work on /opt/airflow/dags/etlDag.py
+[2024-11-24T17:05:12.770+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/etlDag.py for tasks to queue
+[2024-11-24T17:05:12.773+0000] {logging_mixin.py:190} INFO - [2024-11-24T17:05:12.772+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/etlDag.py
+[2024-11-24T17:05:14.130+0000] {processor.py:925} INFO - DAG(s) 'etl_PipelineV23' retrieved from /opt/airflow/dags/etlDag.py
+[2024-11-24T17:05:14.166+0000] {logging_mixin.py:190} INFO - [2024-11-24T17:05:14.165+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2024-11-24T17:05:14.197+0000] {logging_mixin.py:190} INFO - [2024-11-24T17:05:14.197+0000] {dag.py:4180} INFO - Setting next_dagrun for etl_PipelineV23 to 2024-11-24 17:00:00+00:00, run_after=2024-11-24 18:00:00+00:00
+[2024-11-24T17:05:14.231+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/etlDag.py took 1.468 seconds

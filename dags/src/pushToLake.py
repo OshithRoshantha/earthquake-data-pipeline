@@ -11,9 +11,8 @@ def pushToAzure(dataFrame):
     
     credential=DefaultAzureCredential()
     accountName=os.getenv('AZURE_ACCOUNT_NAME')
-        
     blobServiceClient=BlobServiceClient(account_url=f"https://{accountName}.blob.core.windows.net", credential=credential)
-    containerClient=blobServiceClient.get_container_client('datalake')
+    containerClient=blobServiceClient.get_container_client('ml-datasets')
     blobClient=containerClient.get_blob_client('data.json')
     
     try:
