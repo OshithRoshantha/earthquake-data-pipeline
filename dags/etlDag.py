@@ -5,7 +5,6 @@ from src.dataRetrival import setTime,fetchFromApi
 from src.clean import preProcessing
 from src.transform import transformData
 from src.pushToLake import pushToAzure
-import pandas as pd
 
 defaultArgs = {
     'owner': 'Oshith Roshantha',
@@ -46,15 +45,18 @@ def preprocessData(**kwargs):
 def transformDataTask(**kwargs):
     taskInstance = kwargs['task_instance']
     processedData = taskInstance.xcom_pull(task_ids='preprocessData')
-    encodedData, countData, scaler, encoder = transformData(processedData)
-    return {'encodedData': encodedData, 'countData': countData}
+    
+    previousTransformData = taskInstance.xcom_pull(task_ids='transformDataTask', key='return_value')
+    scaler = previousTransformData['scalar'] if previousTransformData and 'scalar' in previousTransformData else None
+    encoder = previousTransformData['encoder'] if previousTransformData and 'encoder' in previousTransformData else None
+    
+    encodedData,  scaler, encoder = transformData(processedData, scaler, encoder)
+    return {'encodedData': encodedData, 'scalar': scaler, 'encoder':encoder}
 
 def pushDataToAzure(**kwargs):
     taskInstance = kwargs['task_instance']
     transformedData = taskInstance.xcom_pull(task_ids='transformDataTask')
-    countData = transformedData['countData']
-    df = pd.DataFrame(countData)
-    pushToAzure(df)
+    pushToAzure(transformedData['encodedData'])
 
 taskFetchData = PythonOperator(
     task_id='fetchData',
