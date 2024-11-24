@@ -13,8 +13,8 @@ def pushToAzure(dataFrame):
     accountName=os.getenv('AZURE_ACCOUNT_NAME')
         
     blobServiceClient=BlobServiceClient(account_url=f"https://{accountName}.blob.core.windows.net", credential=credential)
-    containerClient = blobServiceClient.get_container_client('datalake')
-    blobClient = containerClient.get_blob_client('data.json')
+    containerClient=blobServiceClient.get_container_client('datalake')
+    blobClient=containerClient.get_blob_client('data.json')
     
     try:
         existingBlob=blobClient.download_blob().readall()
