@@ -1,0 +1,9 @@
+{
+	"name": "airflow-intergation",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f5c0eb77-489f-41ab-934c-9704018ca70a",
+		"tenantId": "aa232db2-7a78-4414-a529-33db9124cba7"
+	}
+}
