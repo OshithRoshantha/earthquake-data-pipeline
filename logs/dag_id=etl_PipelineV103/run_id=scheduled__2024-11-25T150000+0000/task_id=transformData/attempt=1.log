@@ -1,0 +1,54 @@
+[2024-11-25T16:51:48.060+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-11-25T16:51:48.080+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_PipelineV103.transformData scheduled__2024-11-25T15:00:00+00:00 [queued]>
+[2024-11-25T16:51:48.092+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_PipelineV103.transformData scheduled__2024-11-25T15:00:00+00:00 [queued]>
+[2024-11-25T16:51:48.093+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2024-11-25T16:51:48.109+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): transformData> on 2024-11-25 15:00:00+00:00
+[2024-11-25T16:51:48.122+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=1409) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-25T16:51:48.121+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'etl_PipelineV103', 'transformData', 'scheduled__2024-11-25T15:00:00+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/etlDag.py', '--cfg-path', '/tmp/tmpqgm30d9e']
+[2024-11-25T16:51:48.124+0000] {standard_task_runner.py:72} INFO - Started process 1419 to run task
+[2024-11-25T16:51:48.125+0000] {standard_task_runner.py:105} INFO - Job 21: Subtask transformData
+[2024-11-25T16:51:48.181+0000] {task_command.py:467} INFO - Running <TaskInstance: etl_PipelineV103.transformData scheduled__2024-11-25T15:00:00+00:00 [running]> on host 8bc87a2683b7
+[2024-11-25T16:51:48.268+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Oshith Roshantha' AIRFLOW_CTX_DAG_ID='etl_PipelineV103' AIRFLOW_CTX_TASK_ID='transformData' AIRFLOW_CTX_EXECUTION_DATE='2024-11-25T15:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-25T15:00:00+00:00'
+[2024-11-25T16:51:48.269+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-11-25T16:51:48.289+0000] {_universal.py:509} INFO - Request URL: 'https://eqdatastorage.blob.core.windows.net/staging-data/cleaned-data.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.24.0 Python/3.12.7 (Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '8fa9ef24-ab4d-11ef-a1f3-0242ac120004'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-11-25T16:51:49.451+0000] {_universal.py:545} INFO - Response status: 206
+Response headers:
+    'Content-Length': '609'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Mon, 25 Nov 2024 16:51:47 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DD0D71735ECFE0"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '416791c7-001e-00e6-6b5a-3f4367000000'
+    'x-ms-client-request-id': '8fa9ef24-ab4d-11ef-a1f3-0242ac120004'
+    'x-ms-version': 'REDACTED'
+    'x-ms-resource-type': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-blob-content-md5': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'x-ms-owner': 'REDACTED'
+    'x-ms-group': 'REDACTED'
+    'x-ms-permissions': 'REDACTED'
+    'x-ms-acl': 'REDACTED'
+    'Date': 'Mon, 25 Nov 2024 16:51:50 GMT'
+[2024-11-25T16:51:49.476+0000] {logging_mixin.py:190} INFO - DataFrame is empty. Returning empty results.
+[2024-11-25T16:51:49.477+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-11-25T16:51:49.486+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-11-25T16:51:49.486+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=etl_PipelineV103, task_id=transformData, run_id=scheduled__2024-11-25T15:00:00+00:00, execution_date=20241125T150000, start_date=20241125T165148, end_date=20241125T165149
+[2024-11-25T16:51:49.511+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-11-25T16:51:49.530+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-11-25T16:51:49.533+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

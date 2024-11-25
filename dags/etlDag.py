@@ -12,7 +12,7 @@ defaultArgs = {
 }
 
 dag = DAG(
-    'etl_PipelineV50',
+    'etl_PipelineV5',
     default_args=defaultArgs,
     description='ETL Pipeline for Earthquake Data',
     schedule_interval=timedelta(hours=1),

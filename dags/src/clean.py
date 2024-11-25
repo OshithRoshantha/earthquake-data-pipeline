@@ -27,7 +27,7 @@ def uploadParquetToAzure(dataFrame):
     if existingParquet:
         existingData = existing_blob.readall()
         existingDf = pd.read_parquet(BytesIO(existingData))
-        updatedDf = pd.concat([existingDf, dataFrame], ignore_index=True)
+        updatedDf = pd.concat([existingDf, dataFrame], ignore_index=True).drop_duplicates(subset='id')
     else:
         updatedDf = dataFrame
         

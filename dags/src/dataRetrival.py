@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
+blobServiceClient = BlobServiceClient.from_connection_string(os.getenv("AZURE_STORAGE_CONNECTION_STRING")) 
+containerClient = blobServiceClient.get_container_client('staging-data')
 
 def fetchFromApi(startTime,endTime):
     startTimeStr = startTime.strftime("%Y-%m-%dT%H:%M:%S")
@@ -23,8 +25,6 @@ def fetchFromApi(startTime,endTime):
         print('Unable to fetch data')
         
 def uploadToAzure(data):
-    blobServiceClient = BlobServiceClient.from_connection_string(os.getenv("AZURE_STORAGE_CONNECTION_STRING")) 
-    containerClient = blobServiceClient.get_container_client('staging-data')
     blobClient = containerClient.get_blob_client('temp-json')
     blobClient.upload_blob(json.dumps(data), overwrite=True)
 
