@@ -31,24 +31,17 @@ def fetchData(**kwargs):
 def preprocessData():
     clean.fetchFromAzure()
 
-def transformDataTask(**kwargs):
-    taskInstance = kwargs['task_instance']
-    processedData = taskInstance.xcom_pull(task_ids='preprocessData')
-    
-    previousTransformData = taskInstance.xcom_pull(task_ids='transformDataTask', key='return_value')
-    scaler = previousTransformData.get('scalar') if previousTransformData else 0
-    encoder = previousTransformData.get('encoder') if previousTransformData else 0
-
-    encodedData,scaler,encoder = transform.transformData(processedData, scaler, encoder)
-       
-    taskInstance.xcom_push('encodedData',value=encodedData)
-    taskInstance.xcom_push('scalar',value=scaler)
-    taskInstance.xcom_push('encoder',value=encoder)
+def transformDataTask():
+    status=transform.downloadParquetFromAzure()
+    return status 
 
 def pushDataToAzure(**kwargs):
     taskInstance = kwargs['task_instance']
-    transformedData = taskInstance.xcom_pull(task_ids='transformDataTask',key='encodedData')
-    pushToLake.pushToAzure(transformedData)
+    previousTaskStatus = taskInstance.xcom_pull(task_ids='transformDataTask')
+    if previousTaskStatus == 0:
+        print("No data to push to Azure")
+    else:
+        pushToLake.pushToAzure(transformedData)
 
 taskFetchData = PythonOperator(
     task_id='fetchData',

@@ -7,7 +7,7 @@ import json
 
 load_dotenv()
 
-def pushToAzure(dataFrame):
+def pushToDataLake(dataFrame):
     
     credential=DefaultAzureCredential()
     accountName=os.getenv('AZURE_ACCOUNT_NAME')
