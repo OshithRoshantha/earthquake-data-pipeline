@@ -12,30 +12,21 @@ defaultArgs = {
 }
 
 dag = DAG(
-    'etl_PipelineV25',
+    'etl_PipelineV31',
     default_args=defaultArgs,
     description='ETL Pipeline for Earthquake Data',
     schedule_interval=timedelta(hours=1),
     catchup=False,
 )
 
-def setTime(executionDate, prevExecutionDate, **kwargs):
-    dagRun = kwargs.get('dag_run', None)
-    if dagRun is None:  
-        startTime = executionDate - timedelta(days=365 * 3)  
-    else:  
-        if prevExecutionDate is None:
-            startTime = executionDate - timedelta(days=365 * 3) 
-        else:
-            startTime = prevExecutionDate
-    endTime = executionDate 
-    return startTime, endTime
-
 def fetchData(**kwargs):
     executionDate = kwargs['execution_date']
     prevExecutionDate = kwargs.get('prev_execution_date')
-    startTime, endTime = setTime(executionDate, prevExecutionDate, **kwargs)
-    rawData = dataRetrival.fetchFromApi(startTime, endTime)
+    if prevExecutionDate is None:
+        startTime = executionDate - timedelta(days=365 * 3)
+    else:
+        startTime = prevExecutionDate
+    rawData = dataRetrival.fetchFromApi(startTime, executionDate)
     return rawData
 
 def preprocessData(**kwargs):

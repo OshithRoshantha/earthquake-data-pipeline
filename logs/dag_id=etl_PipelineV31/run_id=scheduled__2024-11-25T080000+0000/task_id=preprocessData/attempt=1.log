@@ -1,0 +1,46 @@
+[2024-11-25T09:00:30.809+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-11-25T09:00:30.906+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_PipelineV31.preprocessData scheduled__2024-11-25T08:00:00+00:00 [queued]>
+[2024-11-25T09:00:30.940+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_PipelineV31.preprocessData scheduled__2024-11-25T08:00:00+00:00 [queued]>
+[2024-11-25T09:00:30.941+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2024-11-25T09:00:30.997+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): preprocessData> on 2024-11-25 08:00:00+00:00
+[2024-11-25T09:00:31.043+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'etl_PipelineV31', 'preprocessData', 'scheduled__2024-11-25T08:00:00+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/etlDag.py', '--cfg-path', '/tmp/tmpm9im6oin']
+[2024-11-25T09:00:31.048+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=4724) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-25T09:00:31.053+0000] {standard_task_runner.py:105} INFO - Job 32: Subtask preprocessData
+[2024-11-25T09:00:31.055+0000] {standard_task_runner.py:72} INFO - Started process 4734 to run task
+[2024-11-25T09:00:31.296+0000] {task_command.py:467} INFO - Running <TaskInstance: etl_PipelineV31.preprocessData scheduled__2024-11-25T08:00:00+00:00 [running]> on host 7939e06e2b4b
+[2024-11-25T09:00:31.511+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Oshith Roshantha' AIRFLOW_CTX_DAG_ID='etl_PipelineV31' AIRFLOW_CTX_TASK_ID='preprocessData' AIRFLOW_CTX_EXECUTION_DATE='2024-11-25T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-25T08:00:00+00:00'
+[2024-11-25T09:00:31.517+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-11-25T09:00:31.836+0000] {_universal.py:506} INFO - Request URL: 'https://eqdatastorage.blob.core.windows.net/staging-data/cleaned-data.parquet'
+Request method: 'PUT'
+Request headers:
+    'Content-Length': '609'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Content-Type': 'application/octet-stream'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.24.0 Python/3.12.7 (Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'b9954960-ab0b-11ef-a053-0242ac120003'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+[2024-11-25T09:00:33.071+0000] {_universal.py:545} INFO - Response status: 201
+Response headers:
+    'Content-Length': '0'
+    'Content-MD5': 'REDACTED'
+    'Last-Modified': 'Mon, 25 Nov 2024 09:00:33 GMT'
+    'ETag': '"0x8DD0D2F9EFEBA48"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '16563877-101e-00bd-2118-3f441b000000'
+    'x-ms-client-request-id': 'b9954960-ab0b-11ef-a053-0242ac120003'
+    'x-ms-version': 'REDACTED'
+    'x-ms-content-crc64': 'REDACTED'
+    'x-ms-request-server-encrypted': 'REDACTED'
+    'Date': 'Mon, 25 Nov 2024 09:00:33 GMT'
+[2024-11-25T09:00:33.074+0000] {python.py:240} INFO - Done. Returned value was: Empty DataFrame
+Columns: []
+Index: []
+[2024-11-25T09:00:33.170+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-11-25T09:00:33.172+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=etl_PipelineV31, task_id=preprocessData, run_id=scheduled__2024-11-25T08:00:00+00:00, execution_date=20241125T080000, start_date=20241125T090030, end_date=20241125T090033
+[2024-11-25T09:00:33.239+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-11-25T09:00:33.325+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-11-25T09:00:33.332+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

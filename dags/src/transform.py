@@ -2,7 +2,6 @@ from sklearn.preprocessing import MinMaxScaler,OneHotEncoder
 import pandas as pd
 
 def transformData(dF,scaler,encoder):
-    
     if dF.empty:
         print("DataFrame is empty. Returning empty results.")
         return pd.DataFrame(), scaler, encoder

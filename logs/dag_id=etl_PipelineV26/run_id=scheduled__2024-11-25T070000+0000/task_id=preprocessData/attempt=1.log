@@ -1,0 +1,22 @@
+[2024-11-25T08:35:19.750+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-11-25T08:35:19.846+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_PipelineV26.preprocessData scheduled__2024-11-25T07:00:00+00:00 [queued]>
+[2024-11-25T08:35:19.908+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_PipelineV26.preprocessData scheduled__2024-11-25T07:00:00+00:00 [queued]>
+[2024-11-25T08:35:19.910+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2024-11-25T08:35:19.985+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): preprocessData> on 2024-11-25 07:00:00+00:00
+[2024-11-25T08:35:20.065+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'etl_PipelineV26', 'preprocessData', 'scheduled__2024-11-25T07:00:00+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/etlDag.py', '--cfg-path', '/tmp/tmpb94y5sdj']
+[2024-11-25T08:35:20.074+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=3612) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-25T08:35:20.079+0000] {standard_task_runner.py:72} INFO - Started process 3633 to run task
+[2024-11-25T08:35:20.079+0000] {standard_task_runner.py:105} INFO - Job 23: Subtask preprocessData
+[2024-11-25T08:35:20.256+0000] {task_command.py:467} INFO - Running <TaskInstance: etl_PipelineV26.preprocessData scheduled__2024-11-25T07:00:00+00:00 [running]> on host 7939e06e2b4b
+[2024-11-25T08:35:20.733+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Oshith Roshantha' AIRFLOW_CTX_DAG_ID='etl_PipelineV26' AIRFLOW_CTX_TASK_ID='preprocessData' AIRFLOW_CTX_EXECUTION_DATE='2024-11-25T07:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-25T07:00:00+00:00'
+[2024-11-25T08:35:20.742+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-11-25T08:35:21.528+0000] {python.py:240} INFO - Done. Returned value was:            id                                place  ...      lat   depth
+0  us6000p7jc             61 km SE of Shima, Japan  ...  33.8715  339.73
+1  us6000p7j5  80 km SE of Katsuren-haebaru, Japan  ...  25.8865   10.00
+
+[2 rows x 13 columns]
+[2024-11-25T08:35:22.055+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-11-25T08:35:22.058+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=etl_PipelineV26, task_id=preprocessData, run_id=scheduled__2024-11-25T07:00:00+00:00, execution_date=20241125T070000, start_date=20241125T083519, end_date=20241125T083522
+[2024-11-25T08:35:22.127+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-11-25T08:35:22.225+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-11-25T08:35:22.232+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
