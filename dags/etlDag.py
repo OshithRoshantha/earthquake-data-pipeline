@@ -12,7 +12,7 @@ defaultArgs = {
 }
 
 dag = DAG(
-    'etl_PipelineV31',
+    'etl_PipelineV50',
     default_args=defaultArgs,
     description='ETL Pipeline for Earthquake Data',
     schedule_interval=timedelta(hours=1),
@@ -26,14 +26,10 @@ def fetchData(**kwargs):
         startTime = executionDate - timedelta(days=365 * 3)
     else:
         startTime = prevExecutionDate
-    rawData = dataRetrival.fetchFromApi(startTime, executionDate)
-    return rawData
+    dataRetrival.fetchFromApi(startTime, executionDate)
 
-def preprocessData(**kwargs):
-    taskInstance = kwargs['task_instance']
-    rawData = taskInstance.xcom_pull(task_ids='fetchData')
-    processedData = clean.preProcessing(rawData)
-    return processedData
+def preprocessData():
+    clean.fetchFromAzure()
 
 def transformDataTask(**kwargs):
     taskInstance = kwargs['task_instance']

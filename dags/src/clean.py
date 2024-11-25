@@ -65,4 +65,3 @@ def preProcessing(rawData):
     dFrame=pd.DataFrame(processedData)
     dFrame=dFrame.dropna()
     uploadParquetToAzure(dFrame)
-    return dFrame

@@ -19,7 +19,6 @@ def fetchFromApi(startTime,endTime):
     response=requests.get('https://earthquake.usgs.gov/fdsnws/event/1/query',params=params)
     if response.status_code==200:
         uploadToAzure(response.json())
-        return response.json()
     else:
         print('Unable to fetch data')
         
