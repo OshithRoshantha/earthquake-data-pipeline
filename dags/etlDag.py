@@ -10,9 +10,9 @@ defaultArgs = {
 }
 
 dag = DAG(
-    'earthquake_etl',
+    'earthquake_etl_pipeline',
     default_args=defaultArgs,
-    start_date=datetime(2024, 11, 25),
+    start_date=datetime(2024, 11, 26),
     description='ETL Pipeline for Earthquake Data',
     schedule_interval=timedelta(hours=1),
     catchup=True,
