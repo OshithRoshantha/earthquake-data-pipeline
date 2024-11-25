@@ -1,0 +1,79 @@
+[2024-11-25T18:06:52.171+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-11-25T18:06:52.192+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etlDagV12.transformData manual__2024-11-25T18:06:36.060247+00:00 [queued]>
+[2024-11-25T18:06:52.204+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etlDagV12.transformData manual__2024-11-25T18:06:36.060247+00:00 [queued]>
+[2024-11-25T18:06:52.206+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2024-11-25T18:06:52.226+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): transformData> on 2024-11-25 18:06:36.060247+00:00
+[2024-11-25T18:06:52.245+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=6266) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-25T18:06:52.244+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'etlDagV12', 'transformData', 'manual__2024-11-25T18:06:36.060247+00:00', '--job-id', '88', '--raw', '--subdir', 'DAGS_FOLDER/etlDag.py', '--cfg-path', '/tmp/tmp2xjtytid']
+[2024-11-25T18:06:52.247+0000] {standard_task_runner.py:72} INFO - Started process 6276 to run task
+[2024-11-25T18:06:52.248+0000] {standard_task_runner.py:105} INFO - Job 88: Subtask transformData
+[2024-11-25T18:06:52.315+0000] {task_command.py:467} INFO - Running <TaskInstance: etlDagV12.transformData manual__2024-11-25T18:06:36.060247+00:00 [running]> on host 8bc87a2683b7
+[2024-11-25T18:06:52.449+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Oshith Roshantha' AIRFLOW_CTX_DAG_ID='etlDagV12' AIRFLOW_CTX_TASK_ID='transformData' AIRFLOW_CTX_EXECUTION_DATE='2024-11-25T18:06:36.060247+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-25T18:06:36.060247+00:00'
+[2024-11-25T18:06:52.451+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-11-25T18:06:52.486+0000] {_universal.py:509} INFO - Request URL: 'https://eqdatastorage.blob.core.windows.net/staging-data/cleaned-data.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.24.0 Python/3.12.7 (Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '0c5fcb7e-ab58-11ef-8a1c-0242ac120004'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-11-25T18:06:53.721+0000] {_universal.py:545} INFO - Response status: 206
+Response headers:
+    'Content-Length': '7643'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Mon, 25 Nov 2024 18:06:50 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DD0D7BEF7C187C"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '996981b8-f01e-00f3-7564-3f81fe000000'
+    'x-ms-client-request-id': '0c5fcb7e-ab58-11ef-8a1c-0242ac120004'
+    'x-ms-version': 'REDACTED'
+    'x-ms-resource-type': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-blob-content-md5': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'x-ms-owner': 'REDACTED'
+    'x-ms-group': 'REDACTED'
+    'x-ms-permissions': 'REDACTED'
+    'x-ms-acl': 'REDACTED'
+    'Date': 'Mon, 25 Nov 2024 18:06:54 GMT'
+[2024-11-25T18:06:53.784+0000] {_universal.py:506} INFO - Request URL: 'https://eqdatastorage.blob.core.windows.net/staging-data/transform-data.parquet'
+Request method: 'PUT'
+Request headers:
+    'Content-Length': '10808'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Content-Type': 'application/octet-stream'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.24.0 Python/3.12.7 (Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '0d25ff74-ab58-11ef-8a1c-0242ac120004'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+[2024-11-25T18:06:54.177+0000] {_universal.py:545} INFO - Response status: 201
+Response headers:
+    'Content-Length': '0'
+    'Content-MD5': 'REDACTED'
+    'Last-Modified': 'Mon, 25 Nov 2024 18:06:55 GMT'
+    'ETag': '"0x8DD0D7BF2357294"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '99698217-f01e-00f3-4664-3f81fe000000'
+    'x-ms-client-request-id': '0d25ff74-ab58-11ef-8a1c-0242ac120004'
+    'x-ms-version': 'REDACTED'
+    'x-ms-content-crc64': 'REDACTED'
+    'x-ms-request-server-encrypted': 'REDACTED'
+    'Date': 'Mon, 25 Nov 2024 18:06:54 GMT'
+[2024-11-25T18:06:54.180+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-11-25T18:06:54.191+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-11-25T18:06:54.192+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=etlDagV12, task_id=transformData, run_id=manual__2024-11-25T18:06:36.060247+00:00, execution_date=20241125T180636, start_date=20241125T180652, end_date=20241125T180654
+[2024-11-25T18:06:54.240+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-11-25T18:06:54.263+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-11-25T18:06:54.268+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

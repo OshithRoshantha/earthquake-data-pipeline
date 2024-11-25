@@ -3,30 +3,25 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from src import dataRetrival,clean,transform,pushToLake
 
-
 defaultArgs = {
     'owner': 'Oshith Roshantha',
-    'start_date': datetime(2024, 11, 24),
     'retries': 3,
     'retry_delay': timedelta(minutes=5),
 }
 
 dag = DAG(
-    'etl_PipelineV5',
+    'earthquake_etl',
     default_args=defaultArgs,
+    start_date=datetime(2024, 11, 25),
     description='ETL Pipeline for Earthquake Data',
     schedule_interval=timedelta(hours=1),
-    catchup=False,
+    catchup=True,
 )
 
 def fetchData(**kwargs):
     executionDate = kwargs['execution_date']
     prevExecutionDate = kwargs.get('prev_execution_date')
-    if prevExecutionDate is None:
-        startTime = executionDate - timedelta(days=365 * 3)
-    else:
-        startTime = prevExecutionDate
-    dataRetrival.fetchFromApi(startTime, executionDate)
+    dataRetrival.fetchFromApi(prevExecutionDate,executionDate)
 
 def preprocessData():
     clean.fetchFromAzure()

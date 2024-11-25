@@ -1,0 +1,44 @@
+[2024-11-25T17:12:52.057+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-11-25T17:12:52.083+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_PipelineV1.fetchData scheduled__2024-11-25T16:00:00+00:00 [queued]>
+[2024-11-25T17:12:52.099+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_PipelineV1.fetchData scheduled__2024-11-25T16:00:00+00:00 [queued]>
+[2024-11-25T17:12:52.100+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2024-11-25T17:12:52.122+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): fetchData> on 2024-11-25 16:00:00+00:00
+[2024-11-25T17:12:52.150+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=2469) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-25T17:12:52.145+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'etl_PipelineV1', 'fetchData', 'scheduled__2024-11-25T16:00:00+00:00', '--job-id', '33', '--raw', '--subdir', 'DAGS_FOLDER/etlDag.py', '--cfg-path', '/tmp/tmpufr69cjt']
+[2024-11-25T17:12:52.160+0000] {standard_task_runner.py:72} INFO - Started process 2479 to run task
+[2024-11-25T17:12:52.160+0000] {standard_task_runner.py:105} INFO - Job 33: Subtask fetchData
+[2024-11-25T17:12:52.399+0000] {task_command.py:467} INFO - Running <TaskInstance: etl_PipelineV1.fetchData scheduled__2024-11-25T16:00:00+00:00 [running]> on host 8bc87a2683b7
+[2024-11-25T17:12:52.653+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Oshith Roshantha' AIRFLOW_CTX_DAG_ID='etl_PipelineV1' AIRFLOW_CTX_TASK_ID='fetchData' AIRFLOW_CTX_EXECUTION_DATE='2024-11-25T16:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-25T16:00:00+00:00'
+[2024-11-25T17:12:52.657+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-11-25T17:12:53.556+0000] {_universal.py:506} INFO - Request URL: 'https://eqdatastorage.blob.core.windows.net/staging-data/temp-json'
+Request method: 'PUT'
+Request headers:
+    'Content-Length': '2713'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Content-Type': 'application/octet-stream'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.24.0 Python/3.12.7 (Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '81d1a272-ab50-11ef-8f9d-0242ac120004'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+[2024-11-25T17:12:54.878+0000] {_universal.py:545} INFO - Response status: 201
+Response headers:
+    'Content-Length': '0'
+    'Content-MD5': 'REDACTED'
+    'Last-Modified': 'Mon, 25 Nov 2024 17:12:55 GMT'
+    'ETag': '"0x8DD0D74677A5544"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '8e44baa0-201e-00d8-275d-3ff546000000'
+    'x-ms-client-request-id': '81d1a272-ab50-11ef-8f9d-0242ac120004'
+    'x-ms-version': 'REDACTED'
+    'x-ms-content-crc64': 'REDACTED'
+    'x-ms-request-server-encrypted': 'REDACTED'
+    'Date': 'Mon, 25 Nov 2024 17:12:55 GMT'
+[2024-11-25T17:12:54.882+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-11-25T17:12:54.896+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-11-25T17:12:54.897+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=etl_PipelineV1, task_id=fetchData, run_id=scheduled__2024-11-25T16:00:00+00:00, execution_date=20241125T160000, start_date=20241125T171252, end_date=20241125T171254
+[2024-11-25T17:12:54.923+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-11-25T17:12:54.951+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-11-25T17:12:54.955+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

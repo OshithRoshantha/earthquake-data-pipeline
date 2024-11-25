@@ -1,0 +1,51 @@
+[2024-11-25T18:16:12.709+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-11-25T18:16:12.734+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etlDagV15.transformData manual__2024-11-25T18:15:21.667714+00:00 [queued]>
+[2024-11-25T18:16:12.751+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etlDagV15.transformData manual__2024-11-25T18:15:21.667714+00:00 [queued]>
+[2024-11-25T18:16:12.752+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2024-11-25T18:16:12.774+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): transformData> on 2024-11-25 18:15:21.667714+00:00
+[2024-11-25T18:16:12.799+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=6918) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-25T18:16:12.803+0000] {standard_task_runner.py:72} INFO - Started process 6928 to run task
+[2024-11-25T18:16:12.797+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'etlDagV15', 'transformData', 'manual__2024-11-25T18:15:21.667714+00:00', '--job-id', '101', '--raw', '--subdir', 'DAGS_FOLDER/etlDag.py', '--cfg-path', '/tmp/tmph2elhfk5']
+[2024-11-25T18:16:12.804+0000] {standard_task_runner.py:105} INFO - Job 101: Subtask transformData
+[2024-11-25T18:16:12.899+0000] {task_command.py:467} INFO - Running <TaskInstance: etlDagV15.transformData manual__2024-11-25T18:15:21.667714+00:00 [running]> on host 8bc87a2683b7
+[2024-11-25T18:16:13.089+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Oshith Roshantha' AIRFLOW_CTX_DAG_ID='etlDagV15' AIRFLOW_CTX_TASK_ID='transformData' AIRFLOW_CTX_EXECUTION_DATE='2024-11-25T18:15:21.667714+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-25T18:15:21.667714+00:00'
+[2024-11-25T18:16:13.091+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-11-25T18:16:13.127+0000] {_universal.py:509} INFO - Request URL: 'https://eqdatastorage.blob.core.windows.net/staging-data/cleaned-data.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.24.0 Python/3.12.7 (Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '5a8ae616-ab59-11ef-8bc6-0242ac120004'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-11-25T18:16:19.408+0000] {_universal.py:545} INFO - Response status: 206
+Response headers:
+    'Content-Length': '661275'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Mon, 25 Nov 2024 18:16:08 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DD0D7D3C08085C"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'dc53caa2-801e-0074-1666-3fd4d1000000'
+    'x-ms-client-request-id': '5a8ae616-ab59-11ef-8bc6-0242ac120004'
+    'x-ms-version': 'REDACTED'
+    'x-ms-resource-type': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-blob-content-md5': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'x-ms-owner': 'REDACTED'
+    'x-ms-group': 'REDACTED'
+    'x-ms-permissions': 'REDACTED'
+    'x-ms-acl': 'REDACTED'
+    'Date': 'Mon, 25 Nov 2024 18:16:19 GMT'
+[2024-11-25T18:16:49.015+0000] {job.py:229} INFO - Heartbeat recovered after 15.85 seconds
+[2024-11-25T18:16:49.063+0000] {local_task_job_runner.py:266} INFO - Task exited with return code -9. For more information, see https://***.apache.org/docs/apache-***/stable/troubleshooting.html#LocalTaskJob-killed
+[2024-11-25T18:16:49.163+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-25T18:16:49.170+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

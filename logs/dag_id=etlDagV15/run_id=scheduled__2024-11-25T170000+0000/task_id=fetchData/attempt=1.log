@@ -1,0 +1,19 @@
+[2024-11-25T18:12:54.719+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-11-25T18:12:54.754+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etlDagV15.fetchData scheduled__2024-11-25T17:00:00+00:00 [queued]>
+[2024-11-25T18:12:54.775+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etlDagV15.fetchData scheduled__2024-11-25T17:00:00+00:00 [queued]>
+[2024-11-25T18:12:54.776+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2024-11-25T18:12:54.808+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): fetchData> on 2024-11-25 17:00:00+00:00
+[2024-11-25T18:12:54.832+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'etlDagV15', 'fetchData', 'scheduled__2024-11-25T17:00:00+00:00', '--job-id', '94', '--raw', '--subdir', 'DAGS_FOLDER/etlDag.py', '--cfg-path', '/tmp/tmpwsjra8k8']
+[2024-11-25T18:12:54.836+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=6664) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-25T18:12:54.841+0000] {standard_task_runner.py:105} INFO - Job 94: Subtask fetchData
+[2024-11-25T18:12:54.842+0000] {standard_task_runner.py:72} INFO - Started process 6676 to run task
+[2024-11-25T18:12:55.003+0000] {task_command.py:467} INFO - Running <TaskInstance: etlDagV15.fetchData scheduled__2024-11-25T17:00:00+00:00 [running]> on host 8bc87a2683b7
+[2024-11-25T18:12:55.161+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Oshith Roshantha' AIRFLOW_CTX_DAG_ID='etlDagV15' AIRFLOW_CTX_TASK_ID='fetchData' AIRFLOW_CTX_EXECUTION_DATE='2024-11-25T17:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-25T17:00:00+00:00'
+[2024-11-25T18:12:55.164+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-11-25T18:12:55.196+0000] {logging_mixin.py:190} INFO - Fetching data from 2022-11-25 to 2024-11-25
+[2024-11-25T18:12:58.395+0000] {logging_mixin.py:190} INFO - Unable to fetch data
+[2024-11-25T18:12:58.397+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-11-25T18:12:58.413+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-11-25T18:12:58.415+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=etlDagV15, task_id=fetchData, run_id=scheduled__2024-11-25T17:00:00+00:00, execution_date=20241125T170000, start_date=20241125T181254, end_date=20241125T181258
+[2024-11-25T18:12:58.485+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-11-25T18:12:58.504+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

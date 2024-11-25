@@ -1,0 +1,51 @@
+[2024-11-25T18:20:53.095+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-11-25T18:20:53.125+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etlDagV18.transformData scheduled__2024-11-25T17:00:00+00:00 [queued]>
+[2024-11-25T18:20:53.139+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etlDagV18.transformData scheduled__2024-11-25T17:00:00+00:00 [queued]>
+[2024-11-25T18:20:53.140+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2024-11-25T18:20:53.160+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): transformData> on 2024-11-25 17:00:00+00:00
+[2024-11-25T18:20:53.178+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'etlDagV18', 'transformData', 'scheduled__2024-11-25T17:00:00+00:00', '--job-id', '106', '--raw', '--subdir', 'DAGS_FOLDER/etlDag.py', '--cfg-path', '/tmp/tmp1vb9fs_t']
+[2024-11-25T18:20:53.180+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=7255) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-25T18:20:53.182+0000] {standard_task_runner.py:105} INFO - Job 106: Subtask transformData
+[2024-11-25T18:20:53.182+0000] {standard_task_runner.py:72} INFO - Started process 7265 to run task
+[2024-11-25T18:20:53.259+0000] {task_command.py:467} INFO - Running <TaskInstance: etlDagV18.transformData scheduled__2024-11-25T17:00:00+00:00 [running]> on host 8bc87a2683b7
+[2024-11-25T18:20:53.360+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Oshith Roshantha' AIRFLOW_CTX_DAG_ID='etlDagV18' AIRFLOW_CTX_TASK_ID='transformData' AIRFLOW_CTX_EXECUTION_DATE='2024-11-25T17:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-25T17:00:00+00:00'
+[2024-11-25T18:20:53.362+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-11-25T18:20:53.385+0000] {_universal.py:509} INFO - Request URL: 'https://eqdatastorage.blob.core.windows.net/staging-data/cleaned-data.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.24.0 Python/3.12.7 (Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.36)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '0196d32a-ab5a-11ef-99f5-0242ac120004'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+[2024-11-25T18:20:54.845+0000] {_universal.py:545} INFO - Response status: 206
+Response headers:
+    'Content-Length': '661275'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Mon, 25 Nov 2024 18:20:51 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DD0D7DE4DAACBC"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'fa1b3e7a-c01e-005a-5066-3f5416000000'
+    'x-ms-client-request-id': '0196d32a-ab5a-11ef-99f5-0242ac120004'
+    'x-ms-version': 'REDACTED'
+    'x-ms-resource-type': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-blob-content-md5': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'x-ms-owner': 'REDACTED'
+    'x-ms-group': 'REDACTED'
+    'x-ms-permissions': 'REDACTED'
+    'x-ms-acl': 'REDACTED'
+    'Date': 'Mon, 25 Nov 2024 18:20:54 GMT'
+[2024-11-25T18:21:50.015+0000] {job.py:229} INFO - Heartbeat recovered after 36.22 seconds
+[2024-11-25T18:21:50.175+0000] {local_task_job_runner.py:266} INFO - Task exited with return code -9. For more information, see https://***.apache.org/docs/apache-***/stable/troubleshooting.html#LocalTaskJob-killed
+[2024-11-25T18:21:50.400+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-25T18:21:50.409+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

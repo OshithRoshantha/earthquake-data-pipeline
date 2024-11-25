@@ -11,7 +11,7 @@ containerClient = blobServiceClient.get_container_client('staging-data')
 def fetchFromApi(startTime,endTime):
     startTimeStr = startTime.strftime("%Y-%m-%dT%H:%M:%S")
     endTimeStr = endTime.strftime("%Y-%m-%dT%H:%M:%S")
-    
+    print(f"Fetching data from {startTimeStr} to {endTimeStr}")
     params={
         "format":'geojson',
         "starttime":startTimeStr,
