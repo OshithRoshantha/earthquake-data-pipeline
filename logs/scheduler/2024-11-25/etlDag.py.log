@@ -5083,3 +5083,31 @@ SyntaxError: unterminated f-string literal (detected at line 26)
 [2024-11-25T18:30:15.336+0000] {logging_mixin.py:190} INFO - [2024-11-25T18:30:15.335+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2024-11-25T18:30:15.370+0000] {logging_mixin.py:190} INFO - [2024-11-25T18:30:15.370+0000] {dag.py:4180} INFO - Setting next_dagrun for earthquake_etl to 2024-11-25 00:00:00+00:00, run_after=2024-11-25 01:00:00+00:00
 [2024-11-25T18:30:15.414+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/etlDag.py took 2.443 seconds
+[2024-11-25T18:30:45.577+0000] {processor.py:186} INFO - Started process (PID=7693) to work on /opt/airflow/dags/etlDag.py
+[2024-11-25T18:30:45.579+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/etlDag.py for tasks to queue
+[2024-11-25T18:30:45.580+0000] {logging_mixin.py:190} INFO - [2024-11-25T18:30:45.580+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/etlDag.py
+[2024-11-25T18:30:47.376+0000] {processor.py:925} INFO - DAG(s) 'earthquake_etl' retrieved from /opt/airflow/dags/etlDag.py
+[2024-11-25T18:30:47.430+0000] {logging_mixin.py:190} INFO - [2024-11-25T18:30:47.429+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2024-11-25T18:30:47.480+0000] {logging_mixin.py:190} INFO - [2024-11-25T18:30:47.480+0000] {dag.py:4180} INFO - Setting next_dagrun for earthquake_etl to 2024-11-25 00:00:00+00:00, run_after=2024-11-25 01:00:00+00:00
+[2024-11-25T18:30:47.545+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/etlDag.py took 1.982 seconds
+[2024-11-25T18:31:13.353+0000] {processor.py:186} INFO - Started process (PID=7714) to work on /opt/airflow/dags/etlDag.py
+[2024-11-25T18:31:13.362+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/etlDag.py for tasks to queue
+[2024-11-25T18:31:13.369+0000] {logging_mixin.py:190} INFO - [2024-11-25T18:31:13.367+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/etlDag.py
+[2024-11-25T18:31:19.659+0000] {processor.py:925} INFO - DAG(s) 'earthquake_etl' retrieved from /opt/airflow/dags/etlDag.py
+[2024-11-25T18:31:19.726+0000] {logging_mixin.py:190} INFO - [2024-11-25T18:31:19.725+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2024-11-25T18:31:19.779+0000] {logging_mixin.py:190} INFO - [2024-11-25T18:31:19.779+0000] {dag.py:4180} INFO - Setting next_dagrun for earthquake_etl to 2024-11-25 00:00:00+00:00, run_after=2024-11-25 01:00:00+00:00
+[2024-11-25T18:31:19.824+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/etlDag.py took 6.517 seconds
+[2024-11-25T18:31:50.275+0000] {processor.py:186} INFO - Started process (PID=7734) to work on /opt/airflow/dags/etlDag.py
+[2024-11-25T18:31:50.277+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/etlDag.py for tasks to queue
+[2024-11-25T18:31:50.279+0000] {logging_mixin.py:190} INFO - [2024-11-25T18:31:50.278+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/etlDag.py
+[2024-11-25T18:31:52.052+0000] {processor.py:925} INFO - DAG(s) 'earthquake_etl' retrieved from /opt/airflow/dags/etlDag.py
+[2024-11-25T18:31:52.109+0000] {logging_mixin.py:190} INFO - [2024-11-25T18:31:52.107+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2024-11-25T18:31:52.156+0000] {logging_mixin.py:190} INFO - [2024-11-25T18:31:52.156+0000] {dag.py:4180} INFO - Setting next_dagrun for earthquake_etl to 2024-11-25 00:00:00+00:00, run_after=2024-11-25 01:00:00+00:00
+[2024-11-25T18:31:52.190+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/etlDag.py took 1.922 seconds
+[2024-11-25T18:32:22.553+0000] {processor.py:186} INFO - Started process (PID=7754) to work on /opt/airflow/dags/etlDag.py
+[2024-11-25T18:32:22.555+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/etlDag.py for tasks to queue
+[2024-11-25T18:32:22.559+0000] {logging_mixin.py:190} INFO - [2024-11-25T18:32:22.558+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/etlDag.py
+[2024-11-25T18:32:25.712+0000] {processor.py:925} INFO - DAG(s) 'earthquake_etl' retrieved from /opt/airflow/dags/etlDag.py
+[2024-11-25T18:32:25.752+0000] {logging_mixin.py:190} INFO - [2024-11-25T18:32:25.751+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2024-11-25T18:32:25.792+0000] {logging_mixin.py:190} INFO - [2024-11-25T18:32:25.791+0000] {dag.py:4180} INFO - Setting next_dagrun for earthquake_etl to 2024-11-25 00:00:00+00:00, run_after=2024-11-25 01:00:00+00:00
+[2024-11-25T18:32:25.833+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/etlDag.py took 3.296 seconds
