@@ -12,7 +12,7 @@ defaultArgs = {
 }
 
 dag = DAG(
-    'etl_PipelineV23',
+    'etl_PipelineV25',
     default_args=defaultArgs,
     description='ETL Pipeline for Earthquake Data',
     schedule_interval=timedelta(hours=1),
@@ -20,11 +20,15 @@ dag = DAG(
 )
 
 def setTime(executionDate, prevExecutionDate, **kwargs):
-    if prevExecutionDate is None:
-        startTime = executionDate - timedelta(days=365 * 3)
-    else:
-        startTime = prevExecutionDate
-    endTime = executionDate
+    dagRun = kwargs.get('dag_run', None)
+    if dagRun is None:  
+        startTime = executionDate - timedelta(days=365 * 3)  
+    else:  
+        if prevExecutionDate is None:
+            startTime = executionDate - timedelta(days=365 * 3) 
+        else:
+            startTime = prevExecutionDate
+    endTime = executionDate 
     return startTime, endTime
 
 def fetchData(**kwargs):

@@ -1,5 +1,10 @@
 import requests
-from datetime import datetime,timedelta
+import json
+from azure.storage.blob import BlobServiceClient
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 def fetchFromApi(startTime,endTime):
     startTimeStr = startTime.strftime("%Y-%m-%dT%H:%M:%S")
@@ -13,12 +18,16 @@ def fetchFromApi(startTime,endTime):
     }
     response=requests.get('https://earthquake.usgs.gov/fdsnws/event/1/query',params=params)
     if response.status_code==200:
+        uploadToAzure(response.json())
         return response.json()
     else:
         print('Unable to fetch data')
         
-def setTime():
-    executeTime=datetime.now()
-    startTime=executeTime-timedelta(hours=1)
-    return startTime.strftime('%Y-%m-%dT%H:%M:%S'),executeTime.strftime('%Y-%m-%dT%H:%M:%S')
+def uploadToAzure(data):
+    blobServiceClient = BlobServiceClient.from_connection_string(os.getenv("AZURE_STORAGE_CONNECTION_STRING")) 
+    containerClient = blobServiceClient.get_container_client('staging-data')
+    blobClient = containerClient.get_blob_client('temp-json')
+    blobClient.upload_blob(json.dumps(data), overwrite=True)
+
+
     

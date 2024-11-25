@@ -1,0 +1,18 @@
+[2024-11-25T07:18:36.743+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-11-25T07:18:36.791+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_PipelineV23.fetchData scheduled__2024-11-25T06:00:00+00:00 [queued]>
+[2024-11-25T07:18:36.801+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_PipelineV23.fetchData scheduled__2024-11-25T06:00:00+00:00 [queued]>
+[2024-11-25T07:18:36.802+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2024-11-25T07:18:36.833+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): fetchData> on 2024-11-25 06:00:00+00:00
+[2024-11-25T07:18:36.876+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=282) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-25T07:18:36.875+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'etl_PipelineV23', 'fetchData', 'scheduled__2024-11-25T06:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/etlDag.py', '--cfg-path', '/tmp/tmp1b85vfp5']
+[2024-11-25T07:18:36.878+0000] {standard_task_runner.py:72} INFO - Started process 302 to run task
+[2024-11-25T07:18:36.878+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask fetchData
+[2024-11-25T07:18:36.939+0000] {task_command.py:467} INFO - Running <TaskInstance: etl_PipelineV23.fetchData scheduled__2024-11-25T06:00:00+00:00 [running]> on host 7939e06e2b4b
+[2024-11-25T07:18:37.300+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Oshith Roshantha' AIRFLOW_CTX_DAG_ID='etl_PipelineV23' AIRFLOW_CTX_TASK_ID='fetchData' AIRFLOW_CTX_EXECUTION_DATE='2024-11-25T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-25T06:00:00+00:00'
+[2024-11-25T07:18:37.301+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-11-25T07:18:38.437+0000] {python.py:240} INFO - Done. Returned value was: {'type': 'FeatureCollection', 'metadata': {'generated': 1732519119000, 'url': 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2024-11-25T05%3A00%3A00&endtime=2024-11-25T06%3A00%3A00&minmagnitude=4', 'title': 'USGS Earthquakes', 'status': 200, 'api': '1.14.1', 'count': 0}, 'features': []}
+[2024-11-25T07:18:38.476+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-11-25T07:18:38.477+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=etl_PipelineV23, task_id=fetchData, run_id=scheduled__2024-11-25T06:00:00+00:00, execution_date=20241125T060000, start_date=20241125T071836, end_date=20241125T071838
+[2024-11-25T07:18:38.541+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-11-25T07:18:38.565+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-11-25T07:18:38.568+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
