@@ -31,17 +31,17 @@ def fetchData(**kwargs):
 def preprocessData():
     clean.fetchFromAzure()
 
-def transformDataTask():
+def transformData():
     status=transform.downloadParquetFromAzure()
     return status 
 
-def pushDataToAzure(**kwargs):
+def pushToProduction(**kwargs):
     taskInstance = kwargs['task_instance']
     previousTaskStatus = taskInstance.xcom_pull(task_ids='transformDataTask')
     if previousTaskStatus == 0:
-        print("No data to push to Azure")
+        print("No data to push to Production")
     else:
-        pushToLake.pushToAzure(transformedData)
+        pushToLake.pushToProduction()
 
 taskFetchData = PythonOperator(
     task_id='fetchData',
@@ -58,17 +58,17 @@ taskPreprocessData = PythonOperator(
 )
 
 taskTransformData = PythonOperator(
-    task_id='transformDataTask',
-    python_callable=transformDataTask,
+    task_id='transformData',
+    python_callable=transformData,
     provide_context=True,
     dag=dag,
 )
 
-taskPushDataToAzure = PythonOperator(
-    task_id='pushDataToAzure',
-    python_callable=pushDataToAzure,
+taskPushToProduction = PythonOperator(
+    task_id='pushToProduction',
+    python_callable=pushToProduction,
     provide_context=True,
     dag=dag,
 )
 
-taskFetchData >> taskPreprocessData >> taskTransformData >> taskPushDataToAzure
+taskFetchData >> taskPreprocessData >> taskTransformData >> taskPushToProduction

@@ -1,31 +1,17 @@
 from azure.storage.blob import BlobServiceClient
-from azure.identity import DefaultAzureCredential
 from dotenv import load_dotenv
 import os
-import pandas as pd
-import json
 
 load_dotenv()
+blobServiceClient = BlobServiceClient.from_connection_string(os.getenv("AZURE_STORAGE_CONNECTION_STRING")) 
+containerClient1 = blobServiceClient.get_container_client('staging-data')
+containerClient2 = blobServiceClient.get_container_client('production-data')
 
-def pushToDataLake(dataFrame):
-    
-    credential=DefaultAzureCredential()
-    accountName=os.getenv('AZURE_ACCOUNT_NAME')
-    blobServiceClient=BlobServiceClient(account_url=f"https://{accountName}.blob.core.windows.net", credential=credential)
-    containerClient=blobServiceClient.get_container_client('ml-datasets')
-    blobClient=containerClient.get_blob_client('data.json')
-    
-    try:
-        existingBlob=blobClient.download_blob().readall()
-        existingData=json.loads(existingBlob)
-        existingDf=pd.json_normalize(existingData)
-    except:
-        existingDf=pd.DataFrame()
-        
-    combinedDf=pd.concat([existingDf, dataFrame], ignore_index=True)
-    uniqueDf=combinedDf.drop_duplicates(subset=['id'], keep='last')
-    uniqueJsonData=uniqueDf.to_json(orient='records', lines=True)
-    blobClient.upload_blob(uniqueJsonData, overwrite=True)
+def pushToProduction():
+    blobClient1 = containerClient1.get_blob_client('transform-data.parquet')
+    blobClient2 = containerClient2.get_blob_client('train-data.parquet')
+    downloadStream = blobClient1.download_blob()
+    blobClient2.upload_blob(downloadStream.readall(), overwrite=True)
     
     
     
